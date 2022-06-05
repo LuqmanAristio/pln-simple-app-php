@@ -1,0 +1,146 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width: 100%;
+	font-family: segoe ui;
+}
+/*---------------KIRIIIIIIIIII-----------------------*/
+.left-bar{
+	width: 20%;
+	background-color: #1e272e;
+	height: 100vh;
+	float: left;
+}
+.profil-img{
+	width: 100%;
+}
+.profil-img p{
+	color: white;
+	letter-spacing: 2px;
+	font-size: 20px;
+	margin-top: 10px;
+	text-align: center;
+}
+.profil-img img{
+	width: 35%;
+	margin-left: 85px;
+	margin-top: 20px;	
+}
+.link1{
+	width: 100%;
+	height: 50px;
+	/*background-color: #ecf0f1;*/
+	margin-top: 30px;
+	margin-left: 5px;
+}
+.dash{
+	color: white;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+.dash a{
+	color: white;
+	text-decoration: none;
+}
+.link1 a{
+	text-decoration: none;
+	color: #f1f2f6;
+}
+.link1 p{
+	padding-top: 13.5px;
+}
+.ikon{
+	float: left;
+}
+.ikon i{
+	font-size: 20px;
+	color: #f1f2f6;	
+	margin: 15px 15px 0px 15px;
+}
+.link2{
+	width: 100%;
+	height: 50px;
+/*	margin-top: 5px;*/
+	/*background-color: #2f3542;*/
+	margin-left: 5px;
+}
+.link2 a{
+	text-decoration: none;
+	color: #f1f2f6;
+}
+.link2 p{
+	padding-top: 13.5px;
+}
+.ikon2{
+	float: left;
+}
+.ikon2 i{
+	font-size: 20px;
+	color: #f1f2f6;	
+	margin: 15px 15px 0px 15px;
+}
+.link3{
+	width: 100%;
+	height: 50px;
+	/*background-color: #ecf0f1;*/
+	/*margin-top: 5px;*/
+	margin-left: 5px;
+}
+.link3 a{
+	text-decoration: none;
+	color:  #f1f2f6;
+}
+.link3 p{
+	padding-top: 13.5px;
+}
+.ikon3{
+	float: left;
+}
+.ikon3 i{
+	font-size: 20px;
+	color: #f1f2f6;	
+	margin: 16px 15px 0px 15px;
+}
+/*---------------KIRIIIIIIIIII-----------------------*/
+/*---------------KANANNNNNNNNN-----------------------*/
+.right-bar{
+	float: left;
+	width: 80%;
+	height: 100vh;
+	background-color:#ffffff;	
+}
+.ikon-f{
+	display: flex;
+	float: left;
+	width: 50px;
+	background: #F4F8F7;
+	align-items: center;			
+	height: 43px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	/*border-right: 1px solid #747d8c;*/
+	/*border-top: 1px solid #747d8c;
+	border-bottom: 1px solid #747d8c;*/
+}
+.ikon-f i{
+	margin: 0 auto;
+	color: #8C8E8D;
+	font-size: 17px;
+}
+.right-bar h2{
+	text-align: center;
+	margin-top: 90px;
+}
+.img{
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.img img{
+	width: 50%;
+	margin: 0 auto;
+}
+/*---------------KANANNNNNNNNN-----------------------*/

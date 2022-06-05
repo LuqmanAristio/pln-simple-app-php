@@ -1,0 +1,171 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width: 100%;
+	height: 100vh;
+	background: url('../gambar/banner1.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	position: fixed;
+}
+.box{
+	width: 70%;
+	height: 80vh;
+	margin: auto;
+	background-color: #F8FAFB;
+	margin-top: 10vh;
+	border-radius: 5px;
+	box-shadow: 0.5px 0.5px 1px 1px #bdc3c7;
+}
+.right-box{
+	width: 42%;
+	height: 100%;
+	font-family: Segoe UI;
+	float: right;
+}
+.title{
+	font-size: 30px;	
+	margin-left: 15px;
+	margin-top: 60px;
+	color: #2f3640;
+}
+.sub-title{
+	color: #2f3640;
+	font-size: 13px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+.input{
+	background-color: #EEF1F4;
+	width: 90%;
+	margin-top: 25px;
+	margin-left: 15px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+input[type='text']{
+	outline: none;
+	width: 80%;
+	border: none;
+	font-size: 13px;
+	height: 30px;	
+	margin-top: 7px;
+	margin-bottom: 7px;
+	background: transparent;
+}
+.ikon{
+	float: left;
+}
+.ikon i{
+	color: #7f8fa6;
+	font-size: 20px;
+	padding: 12px 17px 10px 17px;
+}
+.input-2{
+	clear: both;
+	background-color: white;
+	width: 90%;
+	margin-left: 15px;
+}
+.ikon-1{
+	float: left;
+}
+.ikon-1 i{
+	color: #7f8fa6;
+	font-size: 20px;
+	padding: 12px 15px 10px 15px;
+}
+.input-3{
+	background-color: #EEF1F4;
+	width: 90%;
+	margin-left: 15px;
+}
+.ikon-2{
+	float: left;
+}
+.ikon-2 i{
+	color: #7f8fa6;
+	font-size: 20px;
+	padding: 12px 20px 10px 20px;
+}
+.input-4{
+	clear: both;
+	background-color: white;
+	width: 90%;
+	margin-left: 15px;
+}
+.ikon-3{
+	float: left;
+}
+.ikon-3	 i{
+	color: #7f8fa6;
+	font-size: 20px;
+	padding: 12px 18px 10px 15px;
+}
+input[type='email']{
+	outline: none;
+	width: 80%;
+	border: none;
+	font-size: 13px;
+	height: 30px;	
+	margin-top: 7px;
+	margin-bottom: 7px;
+	background: transparent;
+}
+.submit{
+	width: 90%;
+	margin-left: 15px;
+}
+input[type='submit']{
+	width: 110px;
+	height: 30px;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	background-color: #0984e3;
+	color: white;
+	cursor: pointer;
+	margin-top: 30px;
+}
+
+input[type='reset']{
+	width: 110px;
+	height: 30px;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	margin-left: 20px;
+	border: none;	
+	background-color: #ffffff;
+	color: #2f3640;
+	box-shadow: 0.5px 0.5px 0.5px rgb(238,241,244);
+}
+.reg{
+	margin-left: 15px;
+	font-size: 13px;
+	margin-top: 40px;
+}
+.reg a{
+	text-decoration: none;
+	color: #273c75;
+	font-weight: 500;
+}
+.left-box{
+	width: 58%;
+	float: left;
+	height: 100%;
+}
+.logo img{
+	width: 25%;
+	margin-top:30px;
+	margin-left: 40px;
+}
+.pict img{
+	width: 80%;
+	margin-top:20px;
+	margin-left: 80px;
+}
