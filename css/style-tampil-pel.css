@@ -147,16 +147,30 @@
 	color: white;
 	border-radius: 5PX;
 }
+
 .left{
 	width: 100%;
 }
+
+.Cari {
+	position: relative;
+	left: 15px;
+	top: 15px;
+}
+
+.Cari2 {
+	position: relative;
+	left: 15px;
+	top: 30px;
+}
+
 input[type='text']{
-	width: 320px;
-	height: 43px;
+	width: 200px;
+	height: 28px;
 	background: #F4F8F7;
 	padding-left: 10px;
 	padding-right: 5px;
-	border: none;
+	border: 0,25px solid #3b3c3b ;
 	color: #2f3542;
 	outline: none;
 	border-top-right-radius: 5px;
@@ -165,6 +179,15 @@ input[type='text']{
 	border-top: 1px solid #747d8c;
 	border-bottom: 1px solid #747d8c;*/
 }
+
+button[type='submit']{
+	height: 28px;
+	width: 40px;
+	top: -26px;
+
+}
+
+
 input[type='Date']{
 	width: 320px;
 	height: 43px;
@@ -214,6 +237,8 @@ select{
 	font-size: 17px;
 }
 .submit{
+	position: relative;
+	left: 300px;
 	width: 385px;
 	height: 50px;
 	margin-top: 20px;
@@ -223,6 +248,9 @@ select{
 /*---------------KANANNNNNNNNN-----------------------*/
 /*---------------TABEL-----------------------*/
 table{
+	position: relative;
+	bottom: 10px;
+	top: 50px;
 	font-size: 13px;
 	border: 1px solid #d0e1f9;
 	margin-right: 5px;

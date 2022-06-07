@@ -4,6 +4,7 @@ if (empty($_SESSION['Username'])) {
 	echo "<script>alert('Silahkan Login Dulu');
 	location.href='index.php';</script>";
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,12 +65,23 @@ if (empty($_SESSION['Username'])) {
 		</div>
 	</div>
 	<div class="right-bar">
-		<form action="tambah-pelanggan.php" method="POST">
+		<form action="" method="POST">
 			<div class="form">
 				<h2>Data Pelanggan</h2>
 				<hr style="margin-bottom: 20px;">
-				<p class="tampil"><a href="input-data-pelanggan.php">Tambah Pelanggan</a></p>
-				<div class="left">
+				<p class="tampil"><a href="input-data-pelanggan.php">Tambah Pelanggan</a></p><br>
+				<div class="left"> 
+					<div class="Cari">
+						<p>Cari data pelanggan menggunakan keyword</p><br>
+						<input type="text" name="keyword" placeholder="Masukkan Keyword..">
+						<button type="submit" name="cari">Cari</button>
+					</div>	
+					<div class="Cari2">
+						<p>Atau menggunakan kodetarif</p><br>
+						<input type="text" name="keywordtarif" placeholder="Masukkan Kodetarif">
+						<button type="submit" name="caritarif">Cari</button>
+					</div>
+
 					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 30px;">
 					<tr class="tabel">
 							<td>No</td>
@@ -84,28 +96,80 @@ if (empty($_SESSION['Username'])) {
 						</tr>
 				<?php
 				include "konek.php";
-				$no=0;
-				// $baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
-				$baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
-				while ($baca1=mysqli_fetch_array($baca))				
-				{
-				$daya=number_format($baca1['Daya'],0,",",".");
-				$no++;
-				echo "
-				<tr class='tabel2'>
-					<td class='number'>$no</td>
-					<td>$baca1[KodeUser]</td>
-					<td>$baca1[NoMeter]</td>
-					<td>$baca1[NamaLengkap]</td>
-					<td>$baca1[Alamat]</td>
-					<td>$baca1[Telp]</td>
-					<td>$baca1[Email]</td>
-					<td>$baca1[KodeTarif]</td>
-					<td class='edit'><a href='edit-pelanggan.php?KodeUser=$baca1[KodeUser]' onclick='return confirm('Yakin?')'>EDIT</a></td> 
-					<td class='hapus'><a href='hapus-pelanggan.php?KodeUser=$baca1[KodeUser]'>HAPUS</a></td>
-				</tr>
-				";
+				if( isset($_POST["cari"]) ) {
+					$no = 0;
+					$keyword = $_POST["keyword"];
+					$baca = mysqli_query($konek,"SELECT * FROM tbuser INNER JOIN tbtarif ON tbuser.KodeTarif = tbtarif.KodeTarif
+					WHERE NamaLengkap LIKE '$keyword%'");
+					while ($baca1=mysqli_fetch_array($baca))				
+					{
+					$daya=number_format($baca1['Daya'],0,",",".");
+					$no++;
+					echo "
+					<tr class='tabel2'>
+						<td class='number'>$no</td>
+						<td>$baca1[KodeUser]</td>
+						<td>$baca1[NoMeter]</td>
+						<td>$baca1[NamaLengkap]</td>
+						<td>$baca1[Alamat]</td>
+						<td>$baca1[Telp]</td>
+						<td>$baca1[Email]</td>
+						<td>$baca1[KodeTarif]</td>
+						<td class='edit'><a href='edit-pelanggan.php?KodeUser=$baca1[KodeUser]' onclick='return confirm('Yakin?')'>EDIT</a></td> 
+						<td class='hapus'><a href='hapus-pelanggan.php?KodeUser=$baca1[KodeUser]'>HAPUS</a></td>
+					</tr>";
+					}
 				}
+				else if( isset($_POST["caritarif"]) ){
+					$no = 0;
+					$keywordtarif = $_POST["keywordtarif"];
+					$baca = mysqli_query($konek,"SELECT * FROM tbuser INNER JOIN tbtarif ON tbuser.KodeTarif = tbtarif.KodeTarif
+					WHERE tbuser.KodeTarif = '$keywordtarif'");
+					while ($baca1=mysqli_fetch_array($baca))				
+					{
+					$daya=number_format($baca1['Daya'],0,",",".");
+					$no++;
+					echo "
+					<tr class='tabel2'>
+						<td class='number'>$no</td>
+						<td>$baca1[KodeUser]</td>
+						<td>$baca1[NoMeter]</td>
+						<td>$baca1[NamaLengkap]</td>
+						<td>$baca1[Alamat]</td>
+						<td>$baca1[Telp]</td>
+						<td>$baca1[Email]</td>
+						<td>$baca1[KodeTarif]</td>
+						<td class='edit'><a href='edit-pelanggan.php?KodeUser=$baca1[KodeUser]' onclick='return confirm('Yakin?')'>EDIT</a></td> 
+						<td class='hapus'><a href='hapus-pelanggan.php?KodeUser=$baca1[KodeUser]'>HAPUS</a></td>
+					</tr>";
+					}
+				}
+				else{
+					$no=0;
+					// $baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
+					$baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
+					while ($baca1=mysqli_fetch_array($baca))				
+					{
+						$daya=number_format($baca1['Daya'],0,",",".");
+						$no++;
+						echo "
+						<tr class='tabel2'>
+							<td class='number'>$no</td>
+							<td>$baca1[KodeUser]</td>
+							<td>$baca1[NoMeter]</td>
+							<td>$baca1[NamaLengkap]</td>
+							<td>$baca1[Alamat]</td>
+							<td>$baca1[Telp]</td>
+							<td>$baca1[Email]</td>
+							<td>$baca1[KodeTarif]</td>
+							<td class='edit'><a href='edit-pelanggan.php?KodeUser=$baca1[KodeUser]' onclick='return confirm('Yakin?')'>EDIT</a></td> 
+							<td class='hapus'><a href='hapus-pelanggan.php?KodeUser=$baca1[KodeUser]'>HAPUS</a></td>
+						</tr>";
+					}
+				}
+				
+
+				
 				?>
 			</table> 
 				</div>
