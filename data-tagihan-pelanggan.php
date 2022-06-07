@@ -72,39 +72,51 @@ $KodeUser=$query[0];
 							<td>Status</td>
 							<td>Action</td>
 						</tr>
-				<?php
-				include "konek.php";
-				$no=0;
-				// $baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
-				$baca=mysqli_query($konek,"select*from tbtagihan inner join tbuser using(KodeUser) where KodeUser='$KodeUser' AND Status!='Lunas'");
-				while ($baca1=mysqli_fetch_array($baca))				
-				{
-					$bayar=number_format($baca1['TotalBayar'],0,",",".");
-				$no++;
-				echo "
-				<tr class='tabel2'>
-					<td class='number'>$no</td>
-					<td>$baca1[KodeUser]</td>
-					<td>$baca1[KodeTagihan]</td>
-					<td>$baca1[NoTagihan]</td>
-					<td>$baca1[BulanTagih]</td>
-					<td>$baca1[TahunTagih]</td>
-					<td>$baca1[Pemakaian] KWH</td>
-					<td>Rp $bayar</td>
-					<td>$baca1[Status]</td>
-				";
-					if ($baca1[8]=='Belum Lunas') {
-						echo "<td class='edit'>
-						<a href='pembayaran-tagihan.php?KodeTagihan=$baca1[KodeTagihan]')'>BAYAR</a>
-						</td> ";
+					<?php
+					include "konek.php";
+					$no=0;
+					// $baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
+					$baca=mysqli_query($konek,"select*from tbtagihan inner join tbuser using(KodeUser) where KodeUser='$KodeUser' AND Status!='Lunas'");
+					while ($baca1=mysqli_fetch_array($baca))				
+					{
+						$bayar=number_format($baca1['TotalBayar'],0,",",".");
+						$no++;
+						echo "
+						<tr class='tabel2'>
+						<td class='number'>$no</td>
+						<td>$baca1[KodeUser]</td>
+						<td>$baca1[KodeTagihan]</td>
+						<td>$baca1[NoTagihan]</td>
+						<td>$baca1[BulanTagih]</td>
+						<td>$baca1[TahunTagih]</td>
+						<td>$baca1[Pemakaian] KWH</td>
+						<td>Rp $bayar</td>
+						<td>$baca1[Status]</td>";
+
+						if ($baca1[8]=='Belum Lunas') {
+							echo "<td class='edit'>
+							<a href='pembayaran-tagihan.php?KodeTagihan=$baca1[KodeTagihan]')'>BAYAR</a>
+							</td> ";
+						}
+						else{
+							echo "<td></td>";
+						}
+					echo "</tr>";
 					}
-					else{
-						echo "<td></td>";
-					}
-				echo "</tr>";
-				}
-				?>
-			</table> 
+					?>
+					</table>
+					<?php
+						include "konek.php";
+						$total_keseluruhan = 0;
+						$total = mysqli_query($konek, "SELECT SUM(TotalBayar) AS total_bayar  FROM tbuser INNER JOIN tbtagihan USING (KodeUser)
+						WHERE KodeUser = '$KodeUser' AND tbtagihan.Status = 'Belum Lunas'");
+						while( $total_harga = mysqli_fetch_assoc($total) ){
+							$total_keseluruhan =+ $total_harga['total_bayar'];
+						}
+						$nominal = number_format($total_keseluruhan,0,",",".");
+						echo "<p class='total'>Total Pembayaran Keseluruhan : Rp. $nominal </p>"
+					?>
+
 				</div>
 			</div>
 		</form>

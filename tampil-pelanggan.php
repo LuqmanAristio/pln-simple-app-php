@@ -77,10 +77,14 @@ if (empty($_SESSION['Username'])) {
 						<button type="submit" name="cari">Cari</button>
 					</div>	
 					<div class="Cari2">
-						<p>Atau menggunakan kodetarif</p><br>
+						<p>Atau menggunakan kode tarif</p><br>
 						<input type="text" name="keywordtarif" placeholder="Masukkan Kodetarif">
 						<button type="submit" name="caritarif">Cari</button>
 					</div>
+					<div class="ResetTable">
+						<button type="submit" name="resettabel">Reset Table</button>
+					</div>
+					
 
 					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 30px;">
 					<tr class="tabel">
@@ -100,7 +104,7 @@ if (empty($_SESSION['Username'])) {
 					$no = 0;
 					$keyword = $_POST["keyword"];
 					$baca = mysqli_query($konek,"SELECT * FROM tbuser INNER JOIN tbtarif ON tbuser.KodeTarif = tbtarif.KodeTarif
-					WHERE NamaLengkap LIKE '$keyword%'");
+					WHERE NamaLengkap LIKE '%$keyword%'");
 					while ($baca1=mysqli_fetch_array($baca))				
 					{
 					$daya=number_format($baca1['Daya'],0,",",".");
@@ -142,6 +146,29 @@ if (empty($_SESSION['Username'])) {
 						<td class='edit'><a href='edit-pelanggan.php?KodeUser=$baca1[KodeUser]' onclick='return confirm('Yakin?')'>EDIT</a></td> 
 						<td class='hapus'><a href='hapus-pelanggan.php?KodeUser=$baca1[KodeUser]'>HAPUS</a></td>
 					</tr>";
+					}
+				}
+				elseif( isset($_POST["resettabel"]) ){
+					$no=0;
+					// $baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
+					$baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
+					while ($baca1=mysqli_fetch_array($baca))				
+					{
+						$daya=number_format($baca1['Daya'],0,",",".");
+						$no++;
+						echo "
+						<tr class='tabel2'>
+							<td class='number'>$no</td>
+							<td>$baca1[KodeUser]</td>
+							<td>$baca1[NoMeter]</td>
+							<td>$baca1[NamaLengkap]</td>
+							<td>$baca1[Alamat]</td>
+							<td>$baca1[Telp]</td>
+							<td>$baca1[Email]</td>
+							<td>$baca1[KodeTarif]</td>
+							<td class='edit'><a href='edit-pelanggan.php?KodeUser=$baca1[KodeUser]' onclick='return confirm('Yakin?')'>EDIT</a></td> 
+							<td class='hapus'><a href='hapus-pelanggan.php?KodeUser=$baca1[KodeUser]'>HAPUS</a></td>
+						</tr>";
 					}
 				}
 				else{

@@ -151,6 +151,12 @@
 .left{
 	width: 100%;
 }
+ .total{
+	position: relative;
+	top: -100px;
+	left: 16px;
+	font-size:larger;
+ }
 
 .Cari {
 	position: relative;
@@ -162,6 +168,34 @@
 	position: relative;
 	left: 15px;
 	top: 30px;
+}
+
+.opsi_filter {
+	position: relative;
+	top: 20px;
+	left: 16px;
+	font-size: 14pt;
+} 
+.input-value{
+	position: relative;
+	top: 10px;
+	
+	font-size: 14pt;
+}
+.filt button[type='submit']{
+	position: relative;
+	top: 10px;
+	width: 50px;
+	height: 30px;
+	
+}
+
+.reset-table button[type='submit']{
+	width: 100px;
+}
+
+.reset {
+	width: 20px;
 }
 
 input[type='text']{
@@ -187,6 +221,12 @@ button[type='submit']{
 
 }
 
+.ResetTable button{
+	position: relative;
+	top: 50px;
+	left: 16px;
+	width: 100px;
+}
 
 input[type='Date']{
 	width: 320px;
@@ -250,7 +290,7 @@ select{
 table{
 	position: relative;
 	bottom: 10px;
-	top: 50px;
+	top: 40px;
 	font-size: 13px;
 	border: 1px solid #d0e1f9;
 	margin-right: 5px;
