@@ -70,7 +70,7 @@ if (empty($_SESSION['Username'])) {
 				<hr style="margin-bottom: 20px;">
 				<p class="tampil"><a href="verifikasi.php">Konfirmasi Tagihan</a></p>
 				<div class="left">
-					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 30px;">
+					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 0px;">
 					<tr class="tabel">
 							<td>No</td>
 							<td>Kode Pembayaran</td>
