@@ -151,51 +151,48 @@
 .left{
 	width: 100%;
 }
- .total{
-	position: relative;
-	top: -100px;
-	left: 16px;
-	font-size:larger;
- }
 
-.Cari {
-	position: relative;
-	left: 15px;
-	top: 15px;
+.filter{
+	width: 100%;
+	margin-top: 20px;
 }
 
-.Cari2 {
-	position: relative;
-	left: 15px;
-	top: 30px;
+.cari{
+	float: left;
+	width: 28%;
 }
 
-.opsi_filter {
-	position: relative;
-	top: 20px;
-	left: 16px;
-	font-size: 14pt;
-} 
-.input-value{
-	position: relative;
-	top: 10px;
-	
-	font-size: 14pt;
-}
-.filt button[type='submit']{
-	position: relative;
-	top: 10px;
-	width: 50px;
-	height: 30px;
-	
+.reset-buttom{
+	float: left;
+	width: 20%;
 }
 
-.reset-table button[type='submit']{
-	width: 100px;
+.cari input[type='text']{
+	width: 200px;
+	border: none;
+	padding: 6px 20px;
+	border-radius: 5px;
+	float: left;
+	box-shadow: 0px 0px 2px 0px rgba(128,128,128,0.75);
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(128,128,128,0.75);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(128,128,128,0.75);
 }
 
-.reset {
-	width: 20px;
+input[type="submit"]{
+	background: linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
+	background: -moz-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
+	background: -o-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 55%);
+	background: -webkit-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
+	color: white;
+	border : none;
+	box-sizing: border-box;
+	padding: 12px 20px;
+	margin-left: 10px;
+	font-size: 13px;
+	letter-spacing: 1px;
+	margin-top: 0px;
+	border-radius: 3px;
+	cursor: pointer;
 }
 
 input[type='text']{
