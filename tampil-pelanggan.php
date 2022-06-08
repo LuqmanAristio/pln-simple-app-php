@@ -197,11 +197,20 @@ if (empty($_SESSION['Username'])) {
 						</tr>";
 					}
 				}
-				
-
-				
 				?>
 			</table> 
+				<br>
+				<br>
+				<br>
+				<div class="total">
+					<?php
+					include "konek.php";
+					$data_pelanggan=mysqli_query($konek,"SELECT * FROM `tbuser` where Level='Pelanggan'");
+					$jumlah_pelanggan = mysqli_num_rows($data_pelanggan);
+					?>
+					<p>Jumlah Data Pelanggan : <b><?php echo $jumlah_pelanggan; ?></b></p>
+				</div>
+					
 				</div>
 			</div>
 		</form>
