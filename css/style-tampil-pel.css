@@ -152,47 +152,16 @@
 	width: 100%;
 }
 
-.filter{
-	width: 100%;
-	margin-top: 20px;
+.Cari {
+	position: relative;
+	left: 15px;
+	top: 15px;
 }
 
-.cari{
-	float: left;
-	width: 28%;
-}
-
-.reset-buttom{
-	float: left;
-	width: 20%;
-}
-
-.cari input[type='text']{
-	width: 200px;
-	border: none;
-	padding: 6px 20px;
-	border-radius: 5px;
-	float: left;
-	box-shadow: 0px 0px 2px 0px rgba(128,128,128,0.75);
-	-webkit-box-shadow: 0px 0px 2px 0px rgba(128,128,128,0.75);
-	-moz-box-shadow: 0px 0px 2px 0px rgba(128,128,128,0.75);
-}
-
-input[type="submit"]{
-	background: linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
-	background: -moz-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
-	background: -o-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 55%);
-	background: -webkit-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
-	color: white;
-	border : none;
-	box-sizing: border-box;
-	padding: 12px 20px;
-	margin-left: 10px;
-	font-size: 13px;
-	letter-spacing: 1px;
-	margin-top: 0px;
-	border-radius: 3px;
-	cursor: pointer;
+.Cari2 {
+	position: relative;
+	left: 15px;
+	top: 30px;
 }
 
 input[type='text']{
@@ -218,12 +187,6 @@ button[type='submit']{
 
 }
 
-.ResetTable button{
-	position: relative;
-	top: 50px;
-	left: 16px;
-	width: 100px;
-}
 
 input[type='Date']{
 	width: 320px;
@@ -287,7 +250,7 @@ select{
 table{
 	position: relative;
 	bottom: 10px;
-	top: 40px;
+	top: 50px;
 	font-size: 13px;
 	border: 1px solid #d0e1f9;
 	margin-right: 5px;
@@ -340,6 +303,61 @@ td.hapus{
 
 /*---------------TABEL-----------------------*/
 
-.total {
-margin-left: 10px;
+/*Data tagihan > 1000000*/
+.tagihanplus{
+	margin-top:100px;
+	padding: 5px 15px;
+	margin-left: 15px;
+	background: linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
+	background: -moz-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
+	background: -o-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 55%);
+	background: -webkit-linear-gradient(left, #011f4b 5% , #03396c 45%, #005b96 85%);
+	font-size: 13px;
+	border-radius: 5PX;
+	width: 200px;
+	float: left;
+}
+
+.tagihanplus a{
+	text-decoration:none;
+	color: white;
+	font-size: 17px;
+	text-align: center;
+}
+
+
+.menu1 table{
+	position: relative;
+	bottom: 40px;
+	top: 10px;
+	font-size: 13px;
+	border: 1px solid #d0e1f9;
+	margin-right: 5px;
+}
+
+.menu2 table{
+	position: relative;
+	bottom: 40px;
+	top: 10px;
+	font-size: 13px;
+	border: 1px solid #d0e1f9;
+	margin-right: 5px;
+}
+.menu3 table{
+	position: relative;
+	bottom: 40px;
+	top: 10px;
+	font-size: 13px;
+	border: 1px solid #d0e1f9;
+	margin-right: 5px;
+}
+
+.menu2 h2{
+	margin-top:70px;
+	margin-bottom:10px;
+}
+
+.menu3 h2{
+	margin-top:70px;
+	margin-bottom:10px;
 }
