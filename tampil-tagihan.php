@@ -101,7 +101,7 @@ if (empty($_SESSION['Username'])) {
 						<td>Bulan Tagih</td>
 						<td>Tahun Tagih</td>
 						<td>Pemakaian</td>
-						<td>Sisa Bayar</td>
+						<td>Total Bayar</td>
 						<td>Status</td>
 						<td colspan="2">Action</td>
 					</tr>
