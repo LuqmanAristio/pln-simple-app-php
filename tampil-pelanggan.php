@@ -70,23 +70,26 @@ if (empty($_SESSION['Username'])) {
 				<h2>Data Pelanggan</h2>
 				<hr style="margin-bottom: 20px;">
 				<p class="tampil"><a href="input-data-pelanggan.php">Tambah Pelanggan</a></p><br>
-				<div class="left"> 
-					<div class="Cari">
-						<p>Cari data pelanggan menggunakan keyword</p><br>
-						<input type="text" name="keyword" placeholder="Masukkan Keyword..">
-						<button type="submit" name="cari">Cari</button>
-					</div>	
-					<div class="Cari2">
-						<p>Atau menggunakan kode tarif</p><br>
-						<input type="text" name="keywordtarif" placeholder="Masukkan Kodetarif">
-						<button type="submit" name="caritarif">Cari</button>
-					</div>
-					<div class="ResetTable">
-						<button type="submit" name="resettabel">Reset Table</button>
+				<div class="left">
+				
+					<div class="filter">
+						<div class="cari" style="margin-left: 16px;">
+							<input type="text" name="keyword" placeholder="Cari nama pelanggan..">
+							<input type="submit" name="cari" value="Cari">
+						</div>
+
+						<div class="cari" style="margin-left: 16px;">
+							<input type="text" name="keywordtarif" placeholder="Cari kode tarif...">
+							<input type="submit" name="caritarif" value="Cari">
+						</div>
+						
+						<div class="reset-button" style="margin-left: 16px;">
+							<input type="submit" name="resettabel" value="Reset">
+						</div>
 					</div>
 					
 
-					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 30px;">
+					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 00px;">
 					<tr class="tabel">
 							<td>No</td>
 							<td>Kode User</td>
@@ -104,7 +107,7 @@ if (empty($_SESSION['Username'])) {
 					$no = 0;
 					$keyword = $_POST["keyword"];
 					$baca = mysqli_query($konek,"SELECT * FROM tbuser INNER JOIN tbtarif ON tbuser.KodeTarif = tbtarif.KodeTarif
-					WHERE NamaLengkap LIKE '%$keyword%'");
+					WHERE NamaLengkap LIKE '%$keyword%' AND Level='Pelanggan'");
 					while ($baca1=mysqli_fetch_array($baca))				
 					{
 					$daya=number_format($baca1['Daya'],0,",",".");
