@@ -16,6 +16,16 @@ $query=mysqli_fetch_array($sql);
 $NamaLengkap=$query[4];
 $KodeUser=$query[0];
 
+$total_keseluruhan = 0;
+$total = mysqli_query($konek, "SELECT SUM(TotalBayar) AS total_bayar FROM tbuser INNER JOIN tbtagihan USING (KodeUser)
+WHERE KodeUser = '$KodeUser' AND tbtagihan.Status = 'Belum Lunas'");
+
+while( $total_harga = mysqli_fetch_assoc($total) ){
+	$total_keseluruhan =+ $total_harga['total_bayar'];
+}
+
+$nominal = number_format($total_keseluruhan,0,",",".");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,6 +68,7 @@ $KodeUser=$query[0];
 			<div class="form">
 				<h2>Data Tagihan Pelanggan</h2>
 				<hr style="margin-bottom: 20px;">
+				<h3 style="margin-left : 15px; margin-top:50px;">Total Tagihan : <?php echo"$nominal" ?></h3>
 				<div class="left">
 					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 30px;">
 					<tr class="tabel">
@@ -105,18 +116,6 @@ $KodeUser=$query[0];
 					}
 					?>
 					</table>
-					<?php
-						include "konek.php";
-						$total_keseluruhan = 0;
-						$total = mysqli_query($konek, "SELECT SUM(TotalBayar) AS total_bayar  FROM tbuser INNER JOIN tbtagihan USING (KodeUser)
-						WHERE KodeUser = '$KodeUser' AND tbtagihan.Status = 'Belum Lunas'");
-						while( $total_harga = mysqli_fetch_assoc($total) ){
-							$total_keseluruhan =+ $total_harga['total_bayar'];
-						}
-						$nominal = number_format($total_keseluruhan,0,",",".");
-						echo "<p class='total'>Total Pembayaran Keseluruhan : Rp. $nominal </p>"
-					?>
-
 				</div>
 			</div>
 		</form>
