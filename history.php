@@ -94,8 +94,11 @@ $KodeUser=$query[0];
 					else if($keyword2==NULL){
 						$keyword2=0;
 					}
-					else{
+					else if($keyword1==NULL){
 						$keyword1=0;
+					}
+					else {
+						0;
 					}
 
 					// SELECT * FROM tbuser JOIN tbtagihan ON tbuser.kodeuser=tbtagihan.kodeuser JOIN tbpembayaran ON tbtagihan.status=tbpembayaran.status WHERE Pemakaian IN (2,32)
