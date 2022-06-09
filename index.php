@@ -9,8 +9,8 @@
 	<div class="container">
 		<div class="box">
 			<div class="right-box">
-				<p class="title">Welcome Back :)</p>
-				<p class="sub-title">Silahkan login dengan menggunakan <b>username/email</b> dan <b>password</b> yang sudah dibuat.</p>
+				<p class="title">Welcome !</p>
+				<p class="sub-title">Silahkan login dengan menggunakan <b>email</b> dan <b>password</b> yang sudah dimiliki sebelumnya.</p>
 				<form name="formlogin" action="validasi.php" method="POST">
 					<div class="input">
 						<div class="ikon">
