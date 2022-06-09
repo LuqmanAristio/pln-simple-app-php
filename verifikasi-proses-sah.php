@@ -4,7 +4,7 @@ include 'konek.php';
 $KodeTagihan=$_GET['KodeTagihan'];
 $Status="Lunas";
 
-$edit=mysqli_query($konek,"update tbtagihan set Status='$Status' where KodeTagihan='$KodeTagihan'");
+$edit=mysqli_query($konek,"delete from tbtagihan where KodeTagihan='$KodeTagihan'");
 $edit1=mysqli_query($konek,"update tbpembayaran set Status='$Status' where KodeTagihan='$KodeTagihan'");
 
 if ($edit && $edit1) {
