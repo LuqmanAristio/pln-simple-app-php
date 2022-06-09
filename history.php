@@ -58,12 +58,14 @@ $KodeUser=$query[0];
 			<div class="form">
 				<h2>History Tagihan</h2>
 				<hr style="margin-bottom: 20px;">
-				<div class="operator_in" style="margin-left: 16px;">
-				    <div class="textcarikwh">Cari Pemakaian /KWH </div>
-				            <input type="text" name="keyword1" placeholder="Kwh" >
-							<input type="text" name="keyword2" placeholder="Kwh">
-							<input type="submit" name="carihistory" value="cari">
+
+				<div class="operator_in" style="margin-left: 18px;">
+				    <div class="textcarikwh" >Cari Pemakaian / KWH </div>
+				            <input type="text" name="keyword1" placeholder="Kwh" style="margin-top: 10px;">
+							<input type="text" name="keyword2" placeholder="Kwh" style="margin-left: 10px; margin-top: 10px;">
+							<input type="submit" name="carihistory" value="Cari" style="margin-top: 10px;">
 				</div>
+
 				<div class="tabelhistory">
 					<table border="1" style="text-align: center; border-collapse: collapse;">
 					<tr class="tabel">
@@ -84,8 +86,20 @@ $KodeUser=$query[0];
 					$no = 0;
 					$keyword1 = $_POST["keyword1"];
 					$keyword2 = $_POST["keyword2"];
+
+					if($keyword1==NULL && $keyword2==NULL){
+						$keyword1=0;
+						$keyword2=0;
+					}
+					else if($keyword2==NULL){
+						$keyword2=0;
+					}
+					else{
+						$keyword1=0;
+					}
+
 					// SELECT * FROM tbuser JOIN tbtagihan ON tbuser.kodeuser=tbtagihan.kodeuser JOIN tbpembayaran ON tbtagihan.status=tbpembayaran.status WHERE Pemakaian IN (2,32)
-					$baca = mysqli_query($konek,"SELECT * FROM tbuser JOIN tbtagihan ON tbuser.kodeuser=tbtagihan.kodeuser WHERE Pemakaian IN ($keyword1,$keyword2)");
+					$baca = mysqli_query($konek,"SELECT * FROM tbuser JOIN tbtagihan ON tbuser.kodeuser=tbtagihan.kodeuser WHERE Pemakaian IN ($keyword1,$keyword2) AND Username='$Username'");
 					while ($baca1=mysqli_fetch_array($baca))				
 					{
 					$bayar=number_format($baca1['TotalBayar'],0,",",".");
