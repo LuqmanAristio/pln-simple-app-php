@@ -68,31 +68,14 @@ if (empty($_SESSION['Username'])) {
 			<h2>Data Tagihan</h2>
 			<hr style="margin-bottom: 20px;">
 			<p class="tampil"><a href="input-data-tagihan.php">Tambah Tagihan</a></p>
+
+			<p class="tampil" style="margin-top:50px; float:left;"><?php echo"<a href='tagihanplus.php?KodeFilter=1'>0 - 500.000</a>"?></p>
+			<p class="tampil" style="margin-top:50px; float:left;"><?php echo"<a href='tagihanplus.php?KodeFilter=2'>500.000 - 1.000.000</a>"?></p>
+			<p class="tampil" style="margin-top:50px;"><?php echo"<a href='tagihanplus.php?KodeFilter=3'>1.000.0000 - 5.000.000</a>"?></p>
+
 			<div class="left">
-				<div class="opsi_filter">
-					<div class="filt">
-						<form action="" method="POST">
-							<p>Filter Berdasarkan : </p>
-							<input type="radio" value="Bulan" name="filter"> Bulan
-							<input type="radio" value="Tahun" name="filter"> Tahun
-							<input type="radio" value="Pemakaian" name="filter"> Pemakaian
-							<input type="radio" value="Sisa Bayar" name="filter"> Sisa Bayar 
-							<br>
-							<p>Masuskkan Rentang Nilai</p>
-							<input class="input1" type="text" name="value1" placeholder="Masukkan Nilai1">
-							<input class="input2" type="text" name="value2" placeholder="Masukkan Nilai2"><br>
-							<button type="submit" name="filter2">Filter</button> <br><br>
-							<div class="reset-table">
-								<button type="submit" name="resettabel">Reset Table</button>
-							</div>
-							
-						</form> 
-					</div>
-					
-				</div>
-				
 			
-				<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 30px;">
+				<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 0px;">
 					<tr class="tabel">
 						<td>No</td>
 						<td>Kode Tagihan</td>
@@ -101,140 +84,12 @@ if (empty($_SESSION['Username'])) {
 						<td>Bulan Tagih</td>
 						<td>Tahun Tagih</td>
 						<td>Pemakaian</td>
-						<td>Total Bayar</td>
+						<td>Sisa Bayar</td>
 						<td>Status</td>
 						<td colspan="2">Action</td>
 					</tr>
 				<?php
 				include "konek.php"; 
-				if( isset($_POST["filter"])){
-					$filter = $_POST["filter"];
-				}
-				if( isset($_POST["filter2"])){
-					global $filter;
-					$Value1 = $_POST["value1"];
-					$Value2 = $_POST["value2"];
-					if($filter == "Bulan"){
-						$no=0;
-						$baca=mysqli_query($konek,"SELECT * FROM tbtagihan LEFT JOIN tbuser ON tbuser.KodeUser=tbtagihan.KodeUser 
-						WHERE tbtagihan.BulanTagih BETWEEN '$Value1' AND '$Value2'");
-						while ($baca1=mysqli_fetch_array($baca))
-						{
-							$bayar=number_format($baca1['TotalBayar'],0,",",".");
-							$no++;
-							echo "
-							<tr class='tabel2'>
-								<td class='number'>$no</td>
-								<td>$baca1[0]</td>
-								<td>$baca1[1]</td>
-								<td>$baca1[NamaLengkap] ($baca1[KodeUser])</td>
-								<td>$baca1[4]</td>
-								<td>$baca1[5]</td>
-								<td>$baca1[6] KWh</td>
-								<td>Rp $bayar</td>
-								<td>$baca1[8]</td>
-								<td class='edit'><a href='edit-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>EDIT</a></td> 
-								<td class='hapus'><a href='hapus-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>HAPUS</a></td>
-							</tr>";
-						}
-					}
-					elseif($filter == "Tahun"){
-						$no=0;
-						$baca=mysqli_query($konek,"SELECT * FROM tbtagihan INNER JOIN tbuser ON tbuser.KodeUser=tbtagihan.KodeUser 
-						WHERE tbtagihan.TahunTagih BETWEEN '$Value1' AND '$Value2'");
-						while ($baca1=mysqli_fetch_array($baca))
-						{
-							$bayar=number_format($baca1['TotalBayar'],0,",",".");
-							$no++;
-							echo "
-							<tr class='tabel2'>
-								<td class='number'>$no</td>
-								<td>$baca1[0]</td>
-								<td>$baca1[1]</td>
-								<td>$baca1[NamaLengkap] ($baca1[KodeUser])</td>
-								<td>$baca1[4]</td>
-								<td>$baca1[5]</td>
-								<td>$baca1[6] KWh</td>
-								<td>Rp $bayar</td>
-								<td>$baca1[8]</td>
-								<td class='edit'><a href='edit-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>EDIT</a></td> 
-								<td class='hapus'><a href='hapus-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>HAPUS</a></td>
-							</tr>";
-						}
-					}
-					elseif($filter == "Pemakaian"){
-						$no=0;
-						$baca=mysqli_query($konek,"SELECT * FROM tbtagihan INNER JOIN tbuser ON tbuser.KodeUser=tbtagihan.KodeUser 
-						WHERE tbtagihan.Pemakaian BETWEEN '$Value1' AND '$Value2'");
-						while ($baca1=mysqli_fetch_array($baca))
-						{
-							$bayar=number_format($baca1['TotalBayar'],0,",",".");
-							$no++;
-							echo "
-							<tr class='tabel2'>
-								<td class='number'>$no</td>
-								<td>$baca1[0]</td>
-								<td>$baca1[1]</td>
-								<td>$baca1[NamaLengkap] ($baca1[KodeUser])</td>
-								<td>$baca1[4]</td>
-								<td>$baca1[5]</td>
-								<td>$baca1[6] KWh</td>
-								<td>Rp $bayar</td>
-								<td>$baca1[8]</td>
-								<td class='edit'><a href='edit-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>EDIT</a></td> 
-								<td class='hapus'><a href='hapus-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>HAPUS</a></td>
-							</tr>";
-						}
-					}
-					elseif(($filter == "Sisa Bayar")){
-						$no=0;
-						$baca=mysqli_query($konek,"SELECT * FROM tbtagihan INNER JOIN tbuser ON tbuser.KodeUser=tbtagihan.KodeUser 
-						WHERE tbtagihan.TotalBayar BETWEEN '$Value1' AND '$Value2'");
-						while ($baca1=mysqli_fetch_array($baca))
-						{
-							$bayar=number_format($baca1['TotalBayar'],0,",",".");
-							$no++;
-							echo "
-							<tr class='tabel2'>
-								<td class='number'>$no</td>
-								<td>$baca1[0]</td>
-								<td>$baca1[1]</td>
-								<td>$baca1[NamaLengkap] ($baca1[KodeUser])</td>
-								<td>$baca1[4]</td>
-								<td>$baca1[5]</td>
-								<td>$baca1[6] KWh</td>
-								<td>Rp $bayar</td>
-								<td>$baca1[8]</td>
-								<td class='edit'><a href='edit-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>EDIT</a></td> 
-								<td class='hapus'><a href='hapus-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>HAPUS</a></td>
-							</tr>";
-						}
-					}
-					else if ( isset($_POST['resettable'])){
-						$no=0;
-						$baca=mysqli_query($konek,"select*from tbtagihan inner join tbuser on tbuser.KodeUser=tbtagihan.KodeUser");
-						while ($baca1=mysqli_fetch_array($baca))				
-						{
-						$bayar=number_format($baca1['TotalBayar'],0,",",".");
-						$no++;
-						echo "
-						<tr class='tabel2'>
-							<td class='number'>$no</td>
-							<td>$baca1[0]</td>
-							<td>$baca1[1]</td>
-							<td>$baca1[NamaLengkap] ($baca1[KodeUser])</td>
-							<td>$baca1[4]</td>
-							<td>$baca1[5]</td>
-							<td>$baca1[6] KWh</td>
-							<td>Rp $bayar</td>
-							<td>$baca1[8]</td>
-							<td class='edit'><a href='edit-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>EDIT</a></td> 
-							<td class='hapus'><a href='hapus-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>HAPUS</a></td>
-						</tr>";
-						}
-					}
-				}	
-				else{
 					$no=0;
 					$baca=mysqli_query($konek,"select*from tbtagihan inner join tbuser on tbuser.KodeUser=tbtagihan.KodeUser");
 					while ($baca1=mysqli_fetch_array($baca))				
@@ -256,7 +111,6 @@ if (empty($_SESSION['Username'])) {
 						<td class='hapus'><a href='hapus-tagihan.php?KodeTagihan=$baca1[KodeTagihan]'>HAPUS</a></td>
 					</tr>";
 					}
-				}
 				?>
 				</table> 
 			</div>
