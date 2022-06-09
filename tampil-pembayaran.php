@@ -68,7 +68,8 @@ if (empty($_SESSION['Username'])) {
 			<div class="form">
 				<h2>Data Pembayaran</h2>
 				<hr style="margin-bottom: 20px;">
-				<p class="tampil"><a href="verifikasi.php">Konfirmasi Tagihan</a></p>
+				<p class="tampil"><a href="verifikasi.php">Konfirmasi Tagihan</a></p><br>
+				<p class="tampil"><a href="cek-status-pembayaran.php">Cek Status Pembayaran</a></p>
 				<div class="left">
 					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 0px;">
 					<tr class="tabel">
