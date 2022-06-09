@@ -21,7 +21,7 @@ $KodeUser=$query[0];
 <html>
 <head>
 	<title>Data Tagihan Pelanggan</title>
-	<link rel="stylesheet" type="text/css" href="css/style-tampil-pel.css">
+	<link rel="stylesheet" type="text/css" href="css/style-tampil-pel.css?<?php echo time(); ?>">
 	<link rel="stylesheet" type="text/css" href="font-awesome/css/all.css">
 </head>
 <body>
@@ -54,12 +54,18 @@ $KodeUser=$query[0];
 		</div>
 	</div>
 	<div class="right-bar">
-		<form action="tambah-pelanggan.php" method="POST">
+		<form action="" method="POST">
 			<div class="form">
 				<h2>History Tagihan</h2>
 				<hr style="margin-bottom: 20px;">
-				<div class="left">
-					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 30px;">
+				<div class="operator_in" style="margin-left: 16px;">
+				    <div class="textcarikwh">Cari Pemakaian /KWH </div>
+				            <input type="text" name="keyword1" placeholder="Kwh" >
+							<input type="text" name="keyword2" placeholder="Kwh">
+							<input type="submit" name="carihistory" value="cari">
+				</div>
+				<div class="tabelhistory">
+					<table border="1" style="text-align: center; border-collapse: collapse;">
 					<tr class="tabel">
 							<td>No</td>
 							<td>Kode User</td>
@@ -74,6 +80,32 @@ $KodeUser=$query[0];
 						</tr>
 				<?php
 				include "konek.php";
+				if( isset($_POST["carihistory"]) ) {
+					$no = 0;
+					$keyword1 = $_POST["keyword1"];
+					$keyword2 = $_POST["keyword2"];
+					// SELECT * FROM tbuser JOIN tbtagihan ON tbuser.kodeuser=tbtagihan.kodeuser JOIN tbpembayaran ON tbtagihan.status=tbpembayaran.status WHERE Pemakaian IN (2,32)
+					$baca = mysqli_query($konek,"SELECT * FROM tbuser JOIN tbtagihan ON tbuser.kodeuser=tbtagihan.kodeuser WHERE Pemakaian IN ($keyword1,$keyword2)");
+					while ($baca1=mysqli_fetch_array($baca))				
+					{
+					$bayar=number_format($baca1['TotalBayar'],0,",",".");
+					$no++;
+					echo "
+					<tr class='tabel2'>
+					<td class='number'>$no</td>
+					<td>$baca1[KodeUser]</td>
+					<td>$baca1[KodeTagihan]</td>
+					<td>$baca1[NoTagihan]</td>
+					<td>$baca1[NamaLengkap]</td>
+					<td>$baca1[BulanTagih]</td>
+					<td>$baca1[TahunTagih]</td>
+					<td>$baca1[Pemakaian] KWH</td>
+					<td>Rp $bayar</td>
+					<td>$baca1[Status]</td>
+				   </tr>
+					";
+					}
+				}else{
 				$no=0;
 				// $baca=mysqli_query($konek,"select*from tbuser inner join tbtarif on tbtarif.KodeTarif=tbuser.KodeTarif where Level='Pelanggan'");
 				$baca=mysqli_query($konek,"select*from tbtagihan inner join tbuser using(KodeUser) where KodeUser='$KodeUser' AND Status='Lunas'");
@@ -96,6 +128,7 @@ $KodeUser=$query[0];
 				</tr>
 				";
 				}
+			}
 				?>
 			</table> 
 				</div>
