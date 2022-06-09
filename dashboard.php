@@ -58,7 +58,7 @@ if (empty($_SESSION['Username'])) {
 		</div>
 	</div>
 	<div class="right-bar">
-		<h2>Selamat Datang PLN RPL 1</h2>
+		<h2>Selamat Datang Admin !</h2>
 		<div class="img">
 			<img src="gambar/ban2.png">
 		</div>

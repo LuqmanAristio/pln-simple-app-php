@@ -112,7 +112,7 @@ $KodeTarif=$baca[0];
 						<div class="ikon-f">
 							<i class="fas fa-bolt"></i>
 						</div>
-						<select name="KodeTarif">
+						<select name="KodeTarif" style="width:68%;">
 								<?php
 								include 'konek.php';
 

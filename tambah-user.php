@@ -18,7 +18,7 @@ $Telp=$_POST['Telp'];
 $Email=$_POST['Email'];
 $Level='Pelanggan';
 
-$sql="INSERT INTO tbuser values('','$NoMeter','$Username','$Password','$NamaLengkap','$Alamat','$Telp','$Email','$Level','0')";
+$sql="INSERT INTO tbuser values('','$NoMeter','$Username','$Password','$NamaLengkap','$Alamat','$Telp','$Email','$Level','1')";
 $query=mysqli_query($konek,$sql);
 
 

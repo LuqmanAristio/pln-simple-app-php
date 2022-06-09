@@ -18,7 +18,7 @@ $KodeUser=$query[0];
 
 $total_keseluruhan = 0;
 $total = mysqli_query($konek, "SELECT SUM(TotalBayar) AS total_bayar FROM tbuser INNER JOIN tbtagihan USING (KodeUser)
-WHERE KodeUser = '$KodeUser' AND tbtagihan.Status = 'Belum Lunas'");
+WHERE KodeUser = '$KodeUser' AND tbtagihan.Status IN ('Belum Lunas','Proses')");
 
 while( $total_harga = mysqli_fetch_assoc($total) ){
 	$total_keseluruhan =+ $total_harga['total_bayar'];
