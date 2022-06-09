@@ -68,9 +68,9 @@ $nominal = number_format($total_keseluruhan,0,",",".");
 			<div class="form">
 				<h2>Data Tagihan Pelanggan</h2>
 				<hr style="margin-bottom: 20px;">
-				<h3 style="margin-left : 15px; margin-top:50px;">Total Tagihan : <?php echo"$nominal" ?></h3>
+				<h3 style="margin-left : 15px; margin-top:30px;">Total Tagihan : <?php echo"$nominal" ?></h3>
 				<div class="left">
-					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 30px;">
+					<table border="1" style="text-align: center; border-collapse: collapse; margin-left: 15px; margin-top: 0px;">
 					<tr class="tabel">
 							<td>No</td>
 							<td>Kode User</td>
