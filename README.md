@@ -1,7 +1,7 @@
 **FINAL PROJECT PRAKTIKUM BASIS DATA**
 
 
-**Anggota Kelompok B2 :******
+**Anggota Kelompok B2 :**
 1. Ni Wayan Yulia Damayanti 		    (2008561012)
 2. I Ketut Oning Pusparama 		      (2008561017)
 3. Muhammad Luqman Aristio 		      (2008561022)
