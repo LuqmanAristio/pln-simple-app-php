@@ -345,14 +345,9 @@ margin-left: 10px;
 }
 
 .operator_in{
-position: relative;
-float: left;
-width: 77%;
-left: 17%;
-top: 23px;
-height: 10%;
-
+	margin-top: 30px;
 }
+
 .operator_in input[type='text']{
 	width: 200px;
 	border: none;
@@ -385,7 +380,7 @@ height: 10%;
 width: 70%;
 position: absolute;
 bottom: 16px;
-top: 185px;
+top: 200px;
 font-size: 13px;
 margin-right: 28px;
 right: 107px;
